@@ -1,22 +1,23 @@
 class chain{
-    constructor(body1,pointB){
+    constructor(bodyA,pointB){
         var option={
-            bodyA:body1,
+            bodyA:bodyA,
             pointB:pointB,
-            length:1,
-            stiffness:0.00004
+            length:10,
+            stiffness:0.01
         }
-        this.bodyA = body1
+        this.bodyA = bodyA
         this.pointB = pointB;
         this.chain = Constraint.create(option);
         World.add(world,this.chain);
     }
-    attach(body){
-      this.chain.bodyA = body;
-    }
     fly(){
       this.chain.bodyA = null;
     }
+    attach(body){
+      this.chain.bodyA = bodyA;
+    }
+    
 
     display(){
         if(this.chain.bodyA){

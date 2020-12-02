@@ -8,7 +8,7 @@ const Constraint = Matter.Constraint;
 var boy,boyimage;
 function preload()
 {
-	boyimage = loadImage("sprites/boy.png");
+	boyimage = loadImage("boy.png");
 }
 
 function setup() {
@@ -19,12 +19,12 @@ function setup() {
 	world = engine.world;
 
 	//Create the Bodies Here.
-	stone1 = new stone(100,520,20);
+
 boy = createSprite(180,610,30,30);
 boy.addImage(boyimage);
 boy.scale = 0.1;
 
-
+stone1 = new stone(120,500,20);
 
   mango1=new mango(700,250,30);
   mango2=new mango(800,280,30);
@@ -42,7 +42,7 @@ boy.scale = 0.1;
   ground1 = new ground(450,700,1000,10);
 
 tree1 = new tree();
-
+chain1 = new chain(stone1.body,{x:120,y:550});
 
 	Engine.run(engine);
   
@@ -54,9 +54,9 @@ function draw() {
   rectMode(CENTER);
   background("white");
   
-chain1 = new chain(stone1.body,{x:130,y:550});
+
   tree1.display();
-  stone1.display();
+  
   mango1.display();
   mango2.display();
   mango3.display();
@@ -69,6 +69,7 @@ chain1 = new chain(stone1.body,{x:130,y:550});
   mango11.display();
   mango12.display();
   chain1.display();
+  stone1.display();
   ground1.display();
   drawSprites();
   detectollision(stone1,mango1);
